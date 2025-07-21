@@ -1,0 +1,231 @@
+%-------------------------
+% Author : Harsh Kushwaha 
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%-------------------------
+
+
+
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt]{article}
+\usepackage{verbatim}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{latexsym}
+\usepackage{marvosym}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[english]{babel}
+%-----------------------------------------
+
+\input glyphtounicode % converts glyph names to unicode
+\pdfgentounicode=1 % ensures pdfs generated are ats readable
+
+%----------FONT OPTIONS-------------------
+\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+%-----------------------------------------
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+% \titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}
+%     {<before-code>}[<after-code>]
+
+% command is the sectioning command to be redefined
+% shape is the style of the font; scshape stands for small caps style
+% format is the format to be applied to whole title- label and text; absent here
+% label defines the label
+% sep is the horizontal separation between label and title body
+% before-code is the code to be executed before
+% after-code is the code to be executed after
+
+\titleformat{\section}
+  {\scshape\large}{}
+    {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+  \item\begin{tabular*}{0.96\textwidth}[t]{
+    p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+  }
+    \textbf{#1} & #2 & #3
+  \end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+  \item\small{
+    \begin{tabular*}{0.96\textwidth}[t]{
+      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+    }
+      \textbf{#1} & \textit{#2} & #3
+    \end{tabular*}
+  }
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\small#1} & {\small#2} \\
+  \end{tabular*}
+}
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+
+%__________________RESUME____________________
+\begin{document}
+
+
+%-----------CONTACT DETAILS------------------
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Huge Harsh Kushwaha \vspace{2pt}} & Location: Bhopal, Madhya Pradesh, India \\ % row = 1
+  \href{https://www.linkedin.com/in/harsh-kushwaha-697ba3289/}{\uline{LinkedIn}} $|$ % row = 2, col = 1
+  \href{https://github.com/HarshK213}{\uline{GitHub}} & % row = 2, col = 1
+  Email: \href{mailto:hkushwaha21305@gmail.com}{\uline{hkushwaha21305@gmail.com}} $|$ Mobile: 9407191498 \\ % row = 2, col = 2
+\end{tabular*}
+%--------------------------------------------
+
+
+%-----------SUMMARY--------------------------
+\section{Full Stack Developer}
+\small{
+  I’m Harsh Kushwaha, a third-year B.Tech Computer Science student at VIT Bhopal University with a strong passion for full-stack web development. I’ve built responsive and modern user interfaces using React, TypeScript, Tailwind CSS, JavaScript, HTML, and CSS. I also have solid programming skills in Python, C++, and JavaScript that support my problem-solving abilities. Having completed my frontend journey, I'm now focused on mastering backend technologies to become a proficient full-stack developer.
+}
+%--------------------------------------------
+
+
+%--------------SKILLS------------------------
+
+\section{Technical Skills}
+     \resumeHeadingListStart{}
+          \resumeSectionType{Languages}{:}{JavaScript, Python, C++, HTML, CSS, Java}
+          \resumeSectionType{Frameworks}{:}{React.js, Node.js, Express}
+          \resumeSectionType{Databases}{:}{MySQL, MongoDB}
+          \resumeSectionType{Dev Tools}{:}{Visual Studio Code, Git, Github, Postman}
+          \resumeSectionType{Core Concepts}{:}{OOPs , Operating System, DBMS}
+     \resumeHeadingListEnd{}
+%--------------------------------------------
+
+
+%-----------EDUCATION-------------------------
+% Mention your CGPA, if its good, in the first row of second column
+
+\section{Education}
+     \resumeHeadingListStart{}
+          \resumeQuadHeading{Kendriya Vidyalaya, Bhopal}{April 2011 -- April 2023}
+          {12th Standard}{84.6\%}
+     \resumeHeadingListEnd{}
+     \resumeHeadingListStart{}
+          \resumeQuadHeading{VIT Bhopal University, Bhopal}{August 2023 -- Present}
+          {Bachelor of Science in Computer Science}{8.5 CGPA}
+     \resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------PROJECTS--------------------------
+\section{Projects}
+     \resumeHeadingListStart{}
+          \resumeTrioHeading{WeatherClue - Weather APP}{HTML,CSS,Javascript,API}{\href{https://github.com/HarshK213/WeatherClue}{\uline{Source Code}}}
+          \resumeItemListStart{}
+               \resumeItem{Created a responsive web application that shows live weather information for more than 200,000 cities using the OpenWeather API.}
+               \resumeItem{Implemented search functionality to retrieve weather information such as temperature, humidity, and wind speed according to user input.}
+               \resumeItem{Developed a simple and intuitive UI using plain HTML, CSS, and JavaScript to provide a seamless experience across all devices.}
+               \resumeItem{Showcased excellent API integration, DOM manipulation, and asynchronous JavaScript (fetch, promises) skills.}
+          \resumeItemListEnd{}
+          
+          \resumeTrioHeading{MindScribe - A NoteTaking Webapp}{React.js,TailwindCSS}{\href{https://github.com/HarshK213/MindScribe}{\uline{Source Code}}}
+          \resumeItemListStart{}
+               \resumeItem{Developed a contemporary note-taking program that allows users to add, edit, and remove notes in real-time.}
+               \resumeItem{Used a responsive layout with Tailwind CSS and developed interactive components using React.}
+               \resumeItem{Provided smooth state management and immediate response to user actions without reloading the page.}
+               \resumeItem{Focused on providing a clutter-free, distraction-free interface optimized for productivity and user convenience.}
+          \resumeItemListEnd{}
+
+          \resumeTrioHeading{BargainBuddy - A Price Compaing ChatBot}{React.js,CSS,GeminiAPI}{\href{https://github.com/HarshK213/BargainBuddy}{\uline{Source Code}}}
+          \resumeItemListStart{}          
+               \resumeItem{Built a chat interface comparing prices of products across various sources with the Gemini API.}
+               \resumeItem{Allowed users to enter product names and be given the best price as well as other alternatives.}
+               \resumeItem{Built a user-friendly chat-like interface making it easier to search for products and make informed shopping choices.}
+               \resumeItem{Shown consumption of API, data processing, and efficient display of comparative results within a conversational sequence.}
+          \resumeItemListEnd{}
+          
+     \resumeHeadingListEnd{}
+%--------------------------------------------
+
+%-----------EXPERIENCE-----------------------
+\section{Achievements}
+    \resumeItemListStart{}
+        \resumeItem{Data Structure and Algorithms : Solved 250+ Problems.}
+        \resumeItem{Contest Rating : LeetCode{1488}, GeeksForGeeks (1593)}
+    \resumeItemListEnd{}
+
+
+\end{document}
